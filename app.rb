@@ -1,5 +1,6 @@
 require "sinatra"
 require "sinatra/reloader"
+require "active_support/all" #need this for the float s
 
 get("/") do
   "
@@ -36,12 +37,12 @@ end
 
 get ("/payment/results") do
   
-  @apr = (params.fetch("apr").to_f)/(100*12)
-  #@apr=@apr_o.to_fs(:percentage, { :precision => 0 } ) 
+  @apr_o= (params.fetch("apr").to_f)/(100*12)
+  @apr=@apr_o.to_fs(:percentage, { :precision => 0 } ) 
   @principal = params.fetch("principal").to_f
   @years = (params.fetch("years").to_i)*12
   @num = @apr*@principal
-  @den = 1- (1+@apr)**(-@years)
+  @den = 1- (1+@apr)**(-@years) #do formatting in the view format or create a separate variable for the formatted version 
   @monthly_p = @num/@den
   
   erb(:payment_results)
