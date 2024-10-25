@@ -29,3 +29,21 @@ get ("/square_root/results") do
   erb(:square_root_results)
 
 end
+
+get ("/payment/new") do
+  erb(:payment)
+end
+
+get ("/payment/results") do
+  
+  @apr = (params.fetch("apr").to_f)/(100*12)
+  #@apr=@apr_o.to_fs(:percentage, { :precision => 0 } ) 
+  @principal = params.fetch("principal").to_f
+  @years = (params.fetch("years").to_i)*12
+  @num = @apr*@principal
+  @den = 1- (1+@apr)**(-@years)
+  @monthly_p = @num/@den
+  
+  erb(:payment_results)
+
+end
