@@ -14,7 +14,7 @@ end
 
 get ("/square/results") do
   @sq_no = params.fetch("number").to_i
-  pp @sq_no
+  @sq_results=@sq_no**2.to_f
+  pp @sq_results
   erb(:square_results)
-
 end
