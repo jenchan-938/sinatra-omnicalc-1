@@ -6,15 +6,42 @@
   </head>
 
 <body>
+
+ <style>
+      .payment_variables{
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+      }
+
+    </style>
+
+
+  <div class ="payment_variables">
+
   <form action = "/payment/results">
-  <label for = "apr"> APR</label>
-  <input id ="apr" name ="apr" placeholder ="E.g. 5.42">
+  
+  <div> 
+  <label for = "apr"> APR</label> 
+  <input id ="apr" name ="apr" placeholder ="E.g. 5.42"> 
+  </div>
+  
+  <div>
   <label for = "no_years"> Number of years </label>
   <input id = "no_years" name ="years" placeholder ="How many years to repay">
-  <label for ="prin"> Principal</label>
+  </div>
+
+  <div>
+  <label for ="prin"> Principal</label> </div>
   <input id = "prin" name ="principal" placeholder ="How much principal?">
+  </div>
+
+  <div>
   <button>Calculate monthly payment</button>
   </form>
+  </div>
+
+  </div>
 
 </body>
 
