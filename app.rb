@@ -14,7 +14,7 @@ get ("/square/new") do
 end
 
 get ("/square/results") do
-  @sq_no = params.fetch("number").to_i
+  @sq_no = params.fetch("number").to_f
   @sq_results=@sq_no**2.to_f
   erb(:square_results)
 end
@@ -24,7 +24,7 @@ get ("/square_root/new") do
 end
 
 get ("/square_root/results") do
-  @sq_root_no= params.fetch("sqrt_no").to_i
+  @sq_root_no= params.fetch("sqrt_no").to_f
   @sq_root_results=@sq_root_no**(1.0/2).to_f.round(14)
 
   erb(:square_root_results)
